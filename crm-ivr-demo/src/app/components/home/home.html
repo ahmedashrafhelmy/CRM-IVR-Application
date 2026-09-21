@@ -1,0 +1,57 @@
+<div class="container mt-5">
+
+    <h1>
+        Fatooma
+    </h1>
+
+
+    <div class="row mt-4">
+
+        <div class="col-md-3">
+            <app-dashboard-card
+                title="Total Customers"
+                [value]="10540">
+            </app-dashboard-card>
+        </div>
+
+
+        <div class="col-md-3">
+            <app-dashboard-card
+                title="IVR Requests"
+                [value]="2003">
+            </app-dashboard-card>
+        </div>
+
+
+        <div class="col-md-3">
+            <app-dashboard-card
+                title="Completed"
+                [value]="1180">
+            </app-dashboard-card>
+        </div>
+
+
+        <div class="col-md-3">
+            <app-dashboard-card
+                title="Failed"
+                [value]="70">
+            </app-dashboard-card>
+        </div>
+
+    </div>
+
+
+    <!-- Transactions Section -->
+
+    <div class="row mt-5">
+
+        <div class="col-12">
+
+            <app-recent-transactions></app-recent-transactions>
+
+        </div>
+
+    </div>
+
+
+</div>

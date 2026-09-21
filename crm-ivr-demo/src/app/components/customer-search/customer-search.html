@@ -1,0 +1,201 @@
+<div class="container mt-5">
+
+    <h2>Customer Search</h2>
+
+    <!-- Search -->
+    <div class="mt-4">
+
+        <input
+            class="form-control w-50"
+            type="text"
+            placeholder="Enter Customer ID"
+            [(ngModel)]="customerId"
+        >
+
+        <button
+            class="btn btn-primary mt-3"
+            (click)="searchCustomer()">
+            Search
+        </button>
+
+    </div>
+
+
+    <!-- Loading -->
+    @if(loading){
+        <div class="mt-3">
+            Loading...
+        </div>
+    }
+
+
+    <!-- Error -->
+    @if(errorMessage){
+        <div class="alert alert-danger mt-3 w-50">
+            {{ errorMessage }}
+        </div>
+    }
+
+
+    <!-- Customer Information -->
+    @if(customer){
+
+        <div class="card mt-4 w-50">
+
+            <div class="card-body">
+
+                <h4>Customer Information</h4>
+
+                <p>
+                    <b>Customer ID:</b>
+                    {{ customer.customerId }}
+                </p>
+
+                <p>
+                    <b>Name:</b>
+                    {{ customer.fullName }}
+                </p>
+
+                <p>
+                    <b>Phone:</b>
+                    {{ customer.phoneNumber }}
+                </p>
+
+                <p>
+                    <b>Email:</b>
+                    {{ customer.email }}
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- Accounts -->
+        <div class="card mt-4">
+
+            <div class="card-body">
+
+                <h4>Accounts</h4>
+
+                <table class="table">
+
+                    <thead>
+                        <tr>
+                            <th>Account Number</th>
+                            <th>Type</th>
+                            <th>Balance</th>
+                            <th>Currency</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        @for(account of accounts; track account.id){
+
+                            <tr>
+                                <td>{{ account.accountNumber }}</td>
+                                <td>{{ account.accountType }}</td>
+                                <td>{{ account.balance }}</td>
+                                <td>{{ account.currency }}</td>
+                                <td>{{ account.status }}</td>
+                            </tr>
+
+                        }
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+
+        <!-- Recent Transactions -->
+        <div class="card mt-4">
+
+            <div class="card-body">
+
+                <h4>Recent Transactions</h4>
+
+                <table class="table">
+
+                    <thead>
+                        <tr>
+                            <th>Transaction ID</th>
+                            <th>Type</th>
+                            <th>Amount</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        @for(transaction of transactions; track transaction.id){
+
+                            <tr>
+                                <td>{{ transaction.transactionId }}</td>
+                                <td>{{ transaction.transactionType }}</td>
+                                <td>{{ transaction.amount }}</td>
+                                <td>{{ transaction.transactionDate }}</td>
+                                <td>{{ transaction.status }}</td>
+                            </tr>
+
+                        }
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+
+        <!-- IVR Calls -->
+        <div class="card mt-4 mb-5">
+
+            <div class="card-body">
+
+                <h4>IVR Call History</h4>
+
+                <table class="table">
+
+                    <thead>
+                        <tr>
+                            <th>Phone</th>
+                            <th>Call Start</th>
+                            <th>Call End</th>
+                            <th>Selected Option</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        @for(call of ivrCalls; track call.id){
+
+                            <tr>
+                                <td>{{ call.phoneNumber }}</td>
+                                <td>{{ call.callStart }}</td>
+                                <td>{{ call.callEnd }}</td>
+                                <td>{{ call.selectedOption }}</td>
+                                <td>{{ call.callStatus }}</td>
+                            </tr>
+
+                        }
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    }
+
+</div>
